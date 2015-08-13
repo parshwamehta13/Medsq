@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Job openings</title>
+</head>
+
+<body>
+	<form action="" method="get">
+		<ul>
+			<li><input type="text" name="q" placeholder='Search...'></li>
+			<li>Location:</li>
+			<ul>
+
+				<!-- <li><input type="checkbox" name="location1" value="Banglore"> Banglore</li>
+				<li><input type="checkbox" name="location2" value="Hyderabad"> Hyderabad</li>
+				<li><input type="checkbox" name="location3" value="Gurgaon"> Gurgaon</li> -->
+				{% for i in location_list %}
+				<li><input type="checkbox" name="{{i}}" value="{{i}}"> {{i}}</li>
+				{% endfor %}
+			</ul>
+			<li><input type="submit" value="Submit"></li>
+		</ul>
+    </form>
+	{%for item in company_list%}
+		<ul>
+			<li>Name: {{item.name}}</li>	
+			<li>Vacancies: {{item.vacancies}}</li>
+			<li>Job Title: {{item.job_title}}</li>
+			<li>Salary: {{item.salary}}</li>
+			<li><a href="{% url 'companyProfile' item.id %}">View More</a></li>
+		</ul>
+	{%endfor%}
+</body>
+</html>
