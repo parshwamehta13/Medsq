@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Application form</title>
+</head>
+<body>
+<form action="" method="POST">{% csrf_token %}
+	<ul>
+		<li>Name: <input type="text" name="name_applicant"></li>
+		<li>CV: <input type="text" name="cv_applicant"></li>
+		<li> <input type="submit" value="Submit CV"></li>
+	</ul>
+</form>
+</body>
+</html>

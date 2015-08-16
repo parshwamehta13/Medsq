@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -14,3 +15,12 @@ class Company(models.Model):
 	
 	def __unicode__(self):
 		return self.name
+
+class Resume (models.Model):
+	name_applicant = models.CharField(max_length=30)
+	cv_applicant = models.CharField(max_length=200)
+	status_application = models.CharField(max_length=30)
+	company_applied = models.ForeignKey('Company')
+	recruiter_id = models.IntegerField(default=1)
+	def __unicode__(self):
+		return self.name_applicant

@@ -3,7 +3,7 @@
 	<title>{{item.name}}</title>
 </head>
 <body>
-	
+		<a href="/logout">Logout</a>
 		<ul>
 			<li>Name: {{item.name}}</li>	
 			<li>Company Profile: {{item.comapany_profile}}</li>
@@ -15,6 +15,14 @@
 			<li>Salary: {{item.salary}}</li>
 
 		</ul>
-	
+
+		<a href="{% url 'apply' item.id %}">Apply Here</a>
+
+		<h2>Already applied Candidates</h2>
+		<ul>
+			{% for x in applied_candidates %}
+			<li>{{x}} : Status = {{x.status_application}}</li>
+			{% endfor %}
+		</ul>
 </body>
 </html>

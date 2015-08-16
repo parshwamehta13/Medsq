@@ -3,7 +3,13 @@
 	<title>Job openings</title>
 </head>
 
+<!-- {% if alert %}
+<body onload="myfunction()"> -->
+<!-- {% else % -->}
 <body>
+<!-- {% endif %} -->
+	<h2>Hello {{user.username}}</h2>
+	<a href="/logout">Logout</a>
 	<form action="" method="get">
 		<ul>
 			<li><input type="text" name="q" placeholder='Search...'></li>
@@ -29,5 +35,10 @@
 			<li><a href="{% url 'companyProfile' item.id %}">View More</a></li>
 		</ul>
 	{%endfor%}
+	<script>
+		function myFunction() {
+    		alert("Your response was recorded");
+		}
+	</script>
 </body>
 </html>
