@@ -6,9 +6,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
 
-def main(request):
+def login_auth(request):
 	username = ''
 	password = ''
+
+	t = loader.get_template('login.html')
+	c = RequestContext(request)
+	if request.method == 'GET':
+		return HttpResponse(t.render(c))	
+	
 
 	if request.method == 'POST':
 		username = request.POST['username']
@@ -19,18 +25,13 @@ def main(request):
 		if user is not None:
 			if user.is_active:
 				login(request, user)
-				return HttpResponseRedirect('/main/')
-		else:
-			print("This account has been deactivated.")
-		return HttpResponse("Please enter a valid username and password")
+				return HttpResponse("Successfully logged in! :D")#HttpResponse("Succesfully logged in!! :D")
+			else:
+				return HttpResponse("This account has been deactivated.")
+	return HttpResponse("Please enter a valid username and password")#return HttpResponse(t.render(c))
 	
-	t = loader.get_template('main_page.html')
-	c = RequestContext(request)
-	#if request.method == 'GET':
-	return HttpResponse(t.render(c))	
-	#return HttpResponse(t.render(c))
-	#This is the place for the block of comment 
-	
-	
-	#render_to_response('main_page.html', context_instance=RequestContext(request))'''
-#@login_required(login_url = '/login/')
+@login_required(login_url = '/login')
+
+def logout(request):
+	logout(request,user)
+	HttpResponse('/main/')
