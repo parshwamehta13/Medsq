@@ -14,10 +14,14 @@ debtagshw==0.1
 decorator==3.4.0
 defer==1.0.6
 dirspec==13.10
+dj-database-url==0.3.0
+dj-static==0.0.6
 Django==1.8.3
+django-toolbelt==0.0.1
 dnspython==1.11.1
 duplicity==0.6.23
 FormEncode==1.2.6
+gunicorn==19.3.0
 gyp==0.1
 html5lib==0.999
 httplib2==0.8
@@ -61,6 +65,7 @@ sessioninstaller==0.0.0
 six==1.9.0
 software-center-aptd-plugins==0.0.0
 South==1.0.2
+static3==0.6.1
 stevedore==1.5.0
 system-service==0.1.6
 Tempita==0.5.2
